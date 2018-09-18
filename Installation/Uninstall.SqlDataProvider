@@ -1,0 +1,11 @@
+﻿/************************************************************/
+/*****           Uninstall.SqlDataProvider              *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+DROP TABLE {databaseOwner}[{objectQualifier}Angularmodule_Items]

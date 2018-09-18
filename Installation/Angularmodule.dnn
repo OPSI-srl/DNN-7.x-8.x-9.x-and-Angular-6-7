@@ -1,0 +1,80 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="Angularmodule" type="Module" version="01.00.00">
+      <friendlyName>Angular module</friendlyName>
+      <description>An Angular6 template</description>
+      <iconFile>DesktopModules/Angularmodule/BBAngular.png</iconFile>
+      <owner>
+        <name>Torsten Weggen</name>
+        <organization>OPSI solutions</organization>
+        <url>http://www.opsi.it</url>
+        <email>support@bopsi.it</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="Release.01.00.00.txt"></releaseNotes>
+      <azureCompatible>False</azureCompatible>
+      <dependencies>
+        <dependency type="CoreVersion">07.00.00</dependency>
+      </dependencies>
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules/Angularmodule</basePath>
+            <script type="Install">
+              <path>Installation</path>
+              <name>00.00.01.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+            <script type="Uninstall">
+              <path>Installation</path>
+              <name>Uninstall.SqlDataProvider</name>
+            </script>
+          </scripts>
+        </component>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>Angularmodule</moduleName>
+            <foldername>Angularmodule</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>Angular module</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/Angularmodule/View.ascx</controlSrc>
+                    <supportsPartialRendering>false</supportsPartialRendering>
+                    <supportsPopUps>false</supportsPopUps>
+                    <controlTitle>Angularmodule</controlTitle>
+                    <controlType>View</controlType>
+                    <helpUrl />
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <path>bin</path>
+              <name>Angularmodule.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/Angularmodule</basePath>
+            <resourceFile>
+              <name>resources.zip</name>
+              <sourceFileName>resources.zip</sourceFileName>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+        <component type="Cleanup" version="00.00.01" fileName="Installation\CleanUp\CleanUp.00.00.01.txt" />
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

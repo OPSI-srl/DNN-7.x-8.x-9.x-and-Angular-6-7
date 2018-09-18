@@ -1,0 +1,10 @@
+﻿<h3>Angularmodule</h3>
+<p>Sample DNN Angualr Module </p>
+<p>
+	bitboxx solutions <br />
+	<a href="mailto:support@bitboxx.net">support@bitboxx.net</a><br />
+	<a href="http://www.bitboxx.net">http://www.bitboxx.net</a><br />
+</p>
+<hr/>
+<b>Version 1.0.0</b>
+
