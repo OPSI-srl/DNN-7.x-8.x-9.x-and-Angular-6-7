@@ -73,7 +73,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var StagingService = /** @class */ (function () {
     function StagingService(http) {
         this.http = http;
-        this._urlBase = "/DesktopModules/Rainbow_Staging/API/TransactionLog/";
+        this._urlBase = "/DesktopModules/Rainbow_Staging/API/";
     }
     //DNN DNN
     // constructor(private http: HttpClient, private ctx: DnnContextService) { 
@@ -131,8 +131,16 @@ var StagingService = /** @class */ (function () {
             statusId = '';
         if (systemCode == undefined)
             systemCode = '';
-        var webAPIName = "list";
+        var webAPIName = "TransactionLog/list";
         var getUrl = this._urlBase + webAPIName + "?dateEnd=" + dateEnd + "&dateStart=" + dateStart + "&systemCode=" + systemCode + "&statusID=" + statusId;
+        console.log('​---------------------------------');
+        console.log('​StagingService -> getUrl', getUrl);
+        console.log('​---------------------------------');
+        return this.http.get(getUrl);
+    };
+    StagingService.prototype.getStagingOutputList = function () {
+        var webAPIName = "DataOutput/list";
+        var getUrl = this._urlBase + webAPIName;
         console.log('​---------------------------------');
         console.log('​StagingService -> getUrl', getUrl);
         console.log('​---------------------------------');
@@ -169,7 +177,7 @@ module.exports = ".example-icon {\r\n  padding: 0 14px;\r\n}\r\n\r\n.example-spa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n        <span>\n            <a mat-flat-button [matMenuTriggerFor]=\"menu\">Menu</a>\n            <mat-menu #menu=\"matMenu\">\n              <a mat-menu-item routerLink=\"\">Transaction</a>\n              <a mat-menu-item routerLink=\"/output\">Output</a>\n              <a mat-menu-item routerLink=\"/input\">Input</a>\n            </mat-menu>\n          </span>      \n        <router-outlet></router-outlet>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <span>\n        <!-- <a mat-flat-button [matMenuTriggerFor]=\"menu\">Menu</a>\n            <mat-menu #menu=\"matMenu\">\n              <a mat-menu-item routerLink=\"\">Transaction</a>\n              <a mat-menu-item routerLink=\"/output\">Output</a>\n              <a mat-menu-item routerLink=\"/input\">Input</a>\n            </mat-menu> \n       <button mat-raised-button\n        matTooltip=\"Info about the action\"\n        aria-label=\"Button that displays a tooltip when focused or hovered over\">\n  Action\n</button>   \n          -->\n        <mat-tab-group [selectedIndex]=\"selectedIndex\" dynamicHeight=\"true\">\n          <mat-tab label=\"Transaction\">\n            <app-nav-filter></app-nav-filter>\n          </mat-tab>\n          <mat-tab label=\"Staging Output\">\n            <app-output-nav></app-output-nav>\n          </mat-tab>\n          <mat-tab label=\"Staging Input\">\n            <app-input-nav></app-input-nav>\n          </mat-tab>\n        </mat-tab-group>\n      </span>\n      <!-- <router-outlet></router-outlet> -->\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -204,6 +212,7 @@ var AppComponent = /** @class */ (function () {
         this.contextService = contextService;
         this.snackBar = snackBar;
         this.title = 'AngolarNG6-Material Design';
+        this.selectedIndex = 0;
         this.moduleID = this.contextService.properties.ModuleId;
         console.log('​------------------------------------------------------------');
         console.log('​AppComponent -> constructor -> this.moduleID', this.moduleID);
@@ -220,6 +229,7 @@ var AppComponent = /** @class */ (function () {
     };
     // tslint:disable-next-line:use-life-cycle-interface
     AppComponent.prototype.ngAfterViewInit = function () {
+        //this.selectedIndex = 2;
     };
     AppComponent.prototype.openSnackBar = function (message, action) {
         this.snackBar.open(message, action, {
@@ -258,7 +268,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _http_DnnInterceptor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../http/DnnInterceptor */ "./src/http/DnnInterceptor.ts");
+/* harmony import */ var _http_interceptor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../http/interceptor */ "./src/http/interceptor.ts");
 /* harmony import */ var _service_dnncontext_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../service/dnncontext.service */ "./src/service/dnncontext.service.ts");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./material */ "./src/app/material.ts");
@@ -274,6 +284,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _input_table_input_table_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./input-table/input-table.component */ "./src/app/input-table/input-table.component.ts");
 /* harmony import */ var _output_table_output_table_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./output-table/output-table.component */ "./src/app/output-table/output-table.component.ts");
 /* harmony import */ var _output_nav_output_nav_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./output-nav/output-nav.component */ "./src/app/output-nav/output-nav.component.ts");
+/* harmony import */ var _service_context_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../service/context.service */ "./src/service/context.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -305,8 +316,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
-    { path: '', component: _transaction_nav_transaction_nav_component__WEBPACK_IMPORTED_MODULE_11__["GridFilterComponent"] },
+    { path: '', component: _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"] },
     { path: 'input', component: _input_nav_input_nav_component__WEBPACK_IMPORTED_MODULE_18__["InputNavComponent"] },
     { path: 'output', component: _output_nav_output_nav_component__WEBPACK_IMPORTED_MODULE_21__["OutputNavComponent"] }
 ];
@@ -346,9 +358,11 @@ var AppModule = /** @class */ (function () {
             ],
             providers: [
                 _service_dnncontext_service__WEBPACK_IMPORTED_MODULE_7__["DnnContextService"],
+                _service_context_service__WEBPACK_IMPORTED_MODULE_22__["Context"],
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
-                    useClass: _http_DnnInterceptor__WEBPACK_IMPORTED_MODULE_6__["DnnInterceptor"],
+                    // useClass: DnnInterceptor,
+                    useClass: _http_interceptor__WEBPACK_IMPORTED_MODULE_6__["Interceptor"],
                     multi: true
                 },
                 _Service_staging_service__WEBPACK_IMPORTED_MODULE_14__["StagingService"]
@@ -519,12 +533,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm5/snack-bar.es5.js");
 /* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/esm5/progress-spinner.es5.js");
 /* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/esm5/menu.es5.js");
+/* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/tabs */ "./node_modules/@angular/material/esm5/tabs.es5.js");
+/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/esm5/tooltip.es5.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -564,7 +584,10 @@ var MaterialModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_0__["MatNativeDateModule"],
                 _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_14__["MatSnackBarModule"],
                 _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_15__["MatProgressSpinnerModule"],
-                _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__["MatMenuModule"]
+                _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__["MatMenuModule"],
+                _angular_material_tabs__WEBPACK_IMPORTED_MODULE_17__["MatTabsModule"],
+                _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_18__["MatTooltipModule"],
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"]
             ],
             exports: [
                 _angular_material__WEBPACK_IMPORTED_MODULE_0__["MatButtonModule"],
@@ -583,7 +606,10 @@ var MaterialModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_0__["MatNativeDateModule"],
                 _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_14__["MatSnackBarModule"],
                 _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_15__["MatProgressSpinnerModule"],
-                _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__["MatMenuModule"]
+                _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__["MatMenuModule"],
+                _angular_material_tabs__WEBPACK_IMPORTED_MODULE_17__["MatTabsModule"],
+                _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_18__["MatTooltipModule"],
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"]
             ],
         })
     ], MaterialModule);
@@ -612,7 +638,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n      <span>Output</span>\n    </mat-toolbar-row>\n  </mat-toolbar>\n  "
+module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <span>Output</span>\n  </mat-toolbar-row>\n</mat-toolbar>\n<app-output-table></app-output-table>"
 
 /***/ }),
 
@@ -667,7 +693,7 @@ var OutputNavComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".container {\r\n    max-width: 100%;\r\n  }\r\n  \r\ntable {\r\n    width: 100%;\r\n}\r\n  \r\ntr.mat-row.ng-star-inserted:hover {\r\n    background: #e2e2e2;\r\n  }\r\n  \r\n.filterSearch{\r\n    width: 100%;\r\n}"
 
 /***/ }),
 
@@ -678,7 +704,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  output-table works!\n</p>\n"
+module.exports = "<div class=\"container\">\n    <br>\n    <div class=\"row\">\n        <div class=\"col-3\">\n            <mat-form-field>\n                <input matInput [matDatepicker]=\"pickerFrom\" [(ngModel)]=\"_filterGrid.pickerStartFrom\" placeholder=\"Choose Date From\" required\n                    readonly>\n                <mat-datepicker-toggle matSuffix [for]=\"pickerFrom\"></mat-datepicker-toggle>\n                <mat-datepicker #pickerFrom [startAt]=\"pickerStartFrom\"></mat-datepicker>\n            </mat-form-field>\n        </div>\n        <div class=\"col-3\">\n            <mat-form-field>\n                <input matInput [matDatepicker]=\"pickerTo\" [(ngModel)]=\"_filterGrid.pickerStartTo\" placeholder=\"Choose Date To\" required\n                    readonly>\n                <mat-datepicker-toggle matSuffix [for]=\"pickerTo\"></mat-datepicker-toggle>\n                <mat-datepicker #pickerTo [startAt]=\"pickerStartTo\"></mat-datepicker>\n            </mat-form-field>\n        </div>\n        <div class=\"col-3\">\n            <mat-form-field>\n                <mat-select placeholder=\"System code\" [(ngModel)]=\"_filterGrid.systemCodeSelected.key\" name=\"systemCode\">\n                    <mat-option *ngFor=\"let item of systemCode\" [value]=\"item.id\">\n                        {{item.value}}\n                    </mat-option>\n                </mat-select>\n            </mat-form-field>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-md-6\">\n            <mat-form-field class=\"filterSearch\">\n                <input maxlength=\"50\" matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter by (System Code, Tra. Guid, data)\">\n            </mat-form-field>\n        </div>\n    </div>\n</div>\n<div class=\"mat-elevation-z8\">\n    <mat-paginator #paginator [length]=\"dataSource.data.length\" [pageIndex]=\"0\" [pageSize]=\"15\" [pageSizeOptions]=\"[15, 25, 50, 100, 250]\">\n    </mat-paginator>\n    <div class=\"example-container mat-elevation-z8\">\n        <div class=\"example-loading-shade\" *ngIf=\"isLoadingResults\">\n            <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n        </div>\n\n        <table mat-table #table [trackBy]=\"trackByIndex\" [dataSource]=\"dataSource\" matSort aria-label=\"Elements\">\n            <!-- Id Column -->\n            <ng-container matColumnDef=\"id\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.id}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"systemcode\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>System Code</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.systemcode}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"transactionlogid\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>T. Log Id</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.transactionlogid}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"transactionguid\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>T. Guid</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.transactionguid}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"transactioniddate\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>T. Date</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.transactioniddate | date:\"MM/dd/yyyy hh:mm\"}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"primarykey\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>primary key</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.primarykey}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"datatypeid\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>datatypeid</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.datatypeid}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"primarykeydate\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>P. key Date</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.primarykeydate}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"data\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>data</th>\n                <td mat-cell *matCellDef=\"let row\" matTooltip=\"{{row.data}}\" >{{row.data | truncate:[10, '...']}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"methodid\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>method id</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.methodid}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"statusid\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>statusid</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.statusid}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"insertdate\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>Insert Date</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.insertdate | date:\"MM/dd/yyyy hh:mm\"}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"senddate\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>Send Date</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.senddate | date:\"MM/dd/yyyy hh:mm\"}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"errormessage\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>Err. Message</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.errormessage | truncate:[10, '...']}}</td>\n            </ng-container>\n\n            <!-- Column -->\n            <ng-container matColumnDef=\"errorcode\">\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>Err. Code</th>\n                <td mat-cell *matCellDef=\"let row\">{{row.errorcode}}</td>\n            </ng-container>\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n        </table>\n\n        <!-- <mat-paginator #paginator [length]=\"dataSource.data.length\" [pageIndex]=\"0\" [pageSize]=\"15\" [pageSizeOptions]=\"[15, 25, 50, 100, 250]\">\n    </mat-paginator> -->\n    </div>\n\n</div>"
 
 /***/ }),
 
@@ -693,6 +719,9 @@ module.exports = "<p>\n  output-table works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OutputTableComponent", function() { return OutputTableComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _Service_staging_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Service/staging.service */ "./src/Service/staging.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _Models_filterGrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Models/filterGrid */ "./src/Models/filterGrid.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -703,18 +732,122 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var OutputTableComponent = /** @class */ (function () {
-    function OutputTableComponent() {
+    function OutputTableComponent(_stagingService, snackBar, dialog) {
+        this._stagingService = _stagingService;
+        this.snackBar = snackBar;
+        this.dialog = dialog;
+        this.pageSize = 50;
+        this.isLoadingResults = false;
+        this._filterGrid = new _Models_filterGrid__WEBPACK_IMPORTED_MODULE_3__["filterGrid"]();
+        this.displayedColumns = [
+            'id',
+            'systemcode',
+            'transactionlogid',
+            'transactionguid',
+            'transactioniddate',
+            'datatypeid',
+            'primarykey',
+            'primarykeydate',
+            'data',
+            'methodid',
+            'statusid',
+            'insertdate',
+            'senddate',
+            'errormessage',
+            'errorcode'
+        ];
     }
     OutputTableComponent.prototype.ngOnInit = function () {
+        this.getStagingOutput();
+        this.resetFilters();
+        this.systemCode = this._stagingService.getSystemCodeList();
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](this.stagingOutputList);
+        this.paginator.pageSize = 50;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
     };
+    OutputTableComponent.prototype.getStagingOutput = function () {
+        var _this = this;
+        this._stagingService.getStagingOutputList().subscribe(function (data) {
+            var obj = JSON.parse(data, function (key, value) {
+                //PARSE HERE SPECIAL DATA
+                if (key == "transactionguid" && value == null) {
+                    return ('--');
+                    // return new Date(value);
+                }
+                else {
+                    //return value;
+                }
+                return (value == null && typeof (value) == 'string' ? '-' : value);
+            });
+            _this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](obj);
+            _this.dataSource.paginator = _this.paginator;
+            _this.dataSource.sort = _this.sort;
+            _this.isLoadingResults = false;
+        }, function (err) {
+            if (err.error instanceof Error) {
+                _this.openSnackBar('Message error', 'ERROR data received form server: ' + err.status);
+            }
+            else {
+                _this.openSnackBar('Message error', 'ERROR receiving data form server: ' + err.status);
+            }
+            _this.isLoadingResults = false;
+        });
+    };
+    OutputTableComponent.prototype.openSnackBar = function (message, action) {
+        this.snackBar.open(message, action, {
+            duration: 4000,
+        });
+    };
+    OutputTableComponent.prototype.PageEvent = function () {
+        console.log('​----------------------------------------');
+        console.log('​OutputTableComponent -> PageEvent -> ', 'ok');
+        console.log('​----------------------------------------');
+    };
+    OutputTableComponent.prototype.resetFilters = function () {
+        this._filterGrid.pickerStartFrom = new Date(new Date().getFullYear(), new Date().getMonth() - 1);
+        this._filterGrid.pickerStartTo = new Date();
+        this._filterGrid.statusIdSelected.key = '-1';
+        this._filterGrid.statusIdSelected.value = 'all';
+        this._filterGrid.systemCodeSelected.value = 'all';
+        this._filterGrid.systemCodeSelected.key = '-1';
+    };
+    OutputTableComponent.prototype.applyFilter = function (filterValue) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+        console.log('TCL: --------------------------------------------------------------------------------------------------------------');
+        console.log('TCL: OutputTableComponent -> applyFilter -> filterValue.trim().toLowerCase()', filterValue.trim().toLowerCase());
+        console.log('TCL: --------------------------------------------------------------------------------------------------------------');
+        this.dataSource.filterPredicate = function (data, filter) {
+            return (data.systemcode.trim().toLowerCase().indexOf(filter.trim().toLowerCase()) != -1
+                ||
+                    data.data.trim().toLowerCase().indexOf(filter.trim().toLowerCase()) != -1
+                ||
+                    data.transactionguid.trim().toLowerCase().indexOf(filter.trim().toLowerCase()) != -1);
+        };
+        if (this.dataSource.paginator) {
+            this.dataSource.paginator.firstPage();
+        }
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"])
+    ], OutputTableComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"])
+    ], OutputTableComponent.prototype, "sort", void 0);
     OutputTableComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-output-table',
             template: __webpack_require__(/*! ./output-table.component.html */ "./src/app/output-table/output-table.component.html"),
             styles: [__webpack_require__(/*! ./output-table.component.css */ "./src/app/output-table/output-table.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_Service_staging_service__WEBPACK_IMPORTED_MODULE_1__["StagingService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
     ], OutputTableComponent);
     return OutputTableComponent;
 }());
@@ -741,7 +874,7 @@ module.exports = ".sidenav-container {\n  height: 100%;\n}\n\n.sidenav {\n  widt
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container class=\"sidenav-container\">\n  <mat-sidenav #drawer class=\"sidenav\" fixedInViewport=\"true\" [attr.role]=\"(isHandset$ | async) ? 'dialog' : 'navigation'\"\n    [mode]=\"side\" [opened]=\"false\">\n    <!-- [mode]=\"side\" (isHandset$ | async) ? 'over' : 'side'-->\n    <!-- [opened]=!(isHandset$ | async) -->\n    <mat-toolbar color=\"primary\">\n      <div class=\"container-fluid\">\n        <div class=\"row\">\n          <div class=\"col-md-10\">\n            Filters\n          </div>\n          <div class=\"col-md-2\">\n            <button type=\"button\" aria-label=\"Toggle sidenav\" mat-icon-button (click)=\"drawer.toggle()\">\n              <!-- *ngIf=\"isHandset$ | async\" -->\n              <mat-icon aria-label=\"Side nav toggle icon\">close</mat-icon>\n            </button>\n          </div>\n        </div>\n      </div>\n    </mat-toolbar>\n    <mat-nav-list>\n      <div class=\"container\">\n        <div class=\"col-md-12\">\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"pickerFrom\" [(ngModel)]=\"_filterGrid.pickerStartFrom\" placeholder=\"Choose Date From\" required\n              readonly>\n            <mat-datepicker-toggle matSuffix [for]=\"pickerFrom\"></mat-datepicker-toggle>\n            <mat-datepicker #pickerFrom [startAt]=\"pickerStartFrom\"></mat-datepicker>\n          </mat-form-field>\n        </div>\n\n        <div class=\"col-md-12\">\n          <mat-form-field>\n            <!-- matDatepicker -->\n            <input matInput [matDatepicker]=\"pickerTo\" [(ngModel)]=\"_filterGrid.pickerStartTo\" placeholder=\"Choose Date To\" required\n              readonly>\n            <mat-datepicker-toggle matSuffix [for]=\"pickerTo\"></mat-datepicker-toggle>\n            <mat-datepicker #pickerTo [startAt]=\"pickerTo\" [startAt]=\"pickerStartTo\"></mat-datepicker>\n          </mat-form-field>\n        </div>\n\n        <div class=\"col-md-12\">\n          <mat-form-field>\n            <mat-select placeholder=\"System code\" (selectionChange)=\"onSelectionSystemCode($event)\" [(ngModel)]=\"_filterGrid.systemCodeSelected.key\"\n              name=\"systemCode\">\n              <mat-option *ngFor=\"let item of systemCode\" [value]=\"item.id\">\n                {{item.value}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n\n        <div class=\"col-md-12\">\n          <mat-form-field>\n            <mat-select placeholder=\"Status ID\" (selectionChange)=\"onSelectionStatusId($event)\" [(ngModel)]=\"_filterGrid.statusIdSelected.key\"\n              name=\"statusId\">\n              <mat-option *ngFor=\"let item of statusError\" [value]=\"item.id\">\n                {{item.value}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n\n        <br>\n        <div class=\"row\">\n          <div class=\"col-md-6\">\n            <!-- <button mat-raised-button (click)=\"resetFilter()\">reset </button> -->\n            <a mat-raised-button (click)=\"onResetFilter()\">RESET</a>\n          </div>\n          <div class=\"col-md-6\">\n            <a mat-raised-button (click)=\"onSearch()\" (click)=\"drawer.toggle()\">SEARCH</a>\n          </div>\n\n        </div>\n      </div>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <mat-toolbar color=\"primary\">\n      <div class=\"row\" style=\"width:100%\">\n        <div class=\"col-6\">\n          <button type=\"button\" aria-label=\"Toggle sidenav\" mat-icon-button (click)=\"drawer.toggle()\">\n            <!-- *ngIf=\"isHandset$ | async\" -->\n            <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n          </button>\n          <span> Filter</span>\n        </div>\n        <div class=\"col-6\" style=\"text-align: right\">\n            <span>STAGING System v.1.0 </span>\n        </div>\n      </div>\n    </mat-toolbar>\n    <!-- Add Content Here -->\n    <!-- <ng-content></ng-content> -->\n    <app-table-transaction [child-message]=\"_filterGrid\" [parentSubject]=\"parentSubject\"></app-table-transaction>\n    <!-- <app-grid-example></app-grid-example> -->\n  </mat-sidenav-content>\n</mat-sidenav-container>"
+module.exports = "\n<mat-sidenav-container class=\"sidenav-container\">\n  <mat-sidenav #drawer class=\"sidenav\" fixedInViewport=\"true\" [attr.role]=\"(isHandset$ | async) ? 'dialog' : 'navigation'\"\n    [mode]=\"side\" [opened]=\"false\">\n    <!-- [mode]=\"side\" (isHandset$ | async) ? 'over' : 'side'-->\n    <!-- [opened]=!(isHandset$ | async) -->\n    <mat-toolbar color=\"primary\">\n      <div class=\"container-fluid\">\n        <div class=\"row\">\n          <div class=\"col-md-10\">\n            Filters\n          </div>\n          <div class=\"col-md-2\">\n            <button type=\"button\" aria-label=\"Toggle sidenav\" mat-icon-button (click)=\"drawer.toggle()\">\n              <!-- *ngIf=\"isHandset$ | async\" -->\n              <mat-icon aria-label=\"Side nav toggle icon\">close</mat-icon>\n            </button>\n          </div>\n        </div>\n      </div>\n    </mat-toolbar>\n    <mat-nav-list>\n      <div class=\"container\">\n        <div class=\"col-md-12\">\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"pickerFrom\" [(ngModel)]=\"_filterGrid.pickerStartFrom\" placeholder=\"Choose Date From\" required\n              readonly>\n            <mat-datepicker-toggle matSuffix [for]=\"pickerFrom\"></mat-datepicker-toggle>\n            <mat-datepicker #pickerFrom [startAt]=\"pickerStartFrom\"></mat-datepicker>\n          </mat-form-field>\n        </div>\n\n        <div class=\"col-md-12\">\n          <mat-form-field>\n            <!-- matDatepicker -->\n            <input matInput [matDatepicker]=\"pickerTo\" [(ngModel)]=\"_filterGrid.pickerStartTo\" placeholder=\"Choose Date To\" required\n              readonly>\n            <mat-datepicker-toggle matSuffix [for]=\"pickerTo\"></mat-datepicker-toggle>\n            <mat-datepicker #pickerTo [startAt]=\"pickerTo\" [startAt]=\"pickerStartTo\"></mat-datepicker>\n          </mat-form-field>\n        </div>\n\n        <div class=\"col-md-12\">\n          <mat-form-field>\n            <mat-select placeholder=\"System code\" (selectionChange)=\"onSelectionSystemCode($event)\" [(ngModel)]=\"_filterGrid.systemCodeSelected.key\"\n              name=\"systemCode\">\n              <mat-option *ngFor=\"let item of systemCode\" [value]=\"item.id\">\n                {{item.value}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n\n        <div class=\"col-md-12\">\n          <mat-form-field>\n            <mat-select placeholder=\"Status ID\" (selectionChange)=\"onSelectionStatusId($event)\" [(ngModel)]=\"_filterGrid.statusIdSelected.key\"\n              name=\"statusId\">\n              <mat-option *ngFor=\"let item of statusError\" [value]=\"item.id\">\n                {{item.value}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n\n        <br>\n        <div class=\"row\">\n          <div class=\"col-md-6\">\n            <!-- <button mat-raised-button (click)=\"resetFilter()\">reset </button> -->\n            <a mat-raised-button (click)=\"onResetFilter()\">RESET</a>\n          </div>\n          <div class=\"col-md-6\">\n            <a mat-raised-button (click)=\"onSearch()\" (click)=\"drawer.toggle()\">SEARCH</a>\n          </div>\n\n        </div>\n      </div>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <mat-toolbar color=\"primary\">\n      <div class=\"row\" style=\"width:100%\">\n        <div class=\"col-6\">\n          <button type=\"button\" aria-label=\"Toggle sidenav\" mat-icon-button (click)=\"drawer.toggle()\">\n            <!-- *ngIf=\"isHandset$ | async\" -->\n            <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n          </button>\n          <span> Filter</span>\n        </div>\n        <div class=\"col-6\" style=\"text-align: right\">\n            <span>STAGING System v.1.0 </span>\n        </div>\n      </div>\n    </mat-toolbar>\n    <!-- Add Content Here -->\n    <!-- <ng-content></ng-content> -->\n    <app-table-transaction [child-message]=\"_filterGrid\" [parentSubject]=\"parentSubject\"></app-table-transaction>\n    <!-- <app-grid-example></app-grid-example> -->\n  </mat-sidenav-content>\n</mat-sidenav-container>"
 
 /***/ }),
 
@@ -898,7 +1031,9 @@ var TruncatePipe = /** @class */ (function () {
     TruncatePipe.prototype.transform = function (value, args) {
         var limit = args.length > 0 ? parseInt(args[0], 10) : 20;
         var trail = args.length > 1 ? args[1] : '...';
-        return value.length > limit ? value.substring(0, limit) + trail : value;
+        if (value == null)
+            return '-';
+        return (value.length > limit) ? value.substring(0, limit) + trail : value;
     };
     TruncatePipe = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"])({
@@ -919,7 +1054,7 @@ var TruncatePipe = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\r\n    max-width: 100%;\r\n  }\r\n  \r\ntable {\r\n    width: 100%;\r\n}\r\n  \r\n.mat-elevation-z8{\r\n    width: 100%;\r\n}\r\n  \r\ntd.mat-cell{\r\n    padding: 4px;\r\n}\r\n  \r\ntd.mat-cell.cdk-column-statusid.mat-column-statusid.ng-star-inserted{\r\n    text-align: center;\r\n}\r\n  \r\ntd.mat-cell.cdk-column-messagetypeid.mat-column-messagetypeid.ng-star-inserted{\r\n    text-align: center;\r\n}\r\n  \r\ntd.mat-cell.cdk-column-systemcode.mat-column-systemcode.ng-star-inserted{\r\n    text-align: center;\r\n}\r\n  \r\n/* \r\ntd.mat-cell.cdk-column-messagetypeid {\r\n    background-color: aquamarine;\r\n} */\r\n  \r\nmat-form-field.mat-form-field.ng-tns-c8-11.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-hide-placeholder{\r\n    width: 100%;\r\n}\r\n  \r\n.example-container {\r\n\r\n  }\r\n  \r\n.example-loading-shade {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    bottom: 56px;\r\n    right: 0;\r\n    background: rgba(0, 0, 0, 0.15);\r\n    z-index: 1;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n  }\r\n  \r\ntr.mat-row.ng-star-inserted:hover {\r\n    background: #e2e2e2;\r\n  }\r\n  \r\n.circleRed {\r\n    margin: 0 auto;\r\n    width: 20px;\r\n    height: 20px;\r\n    background: rgb(221, 22, 22);\r\n    border: 1px solid rgb(66, 65, 65);\r\n    border-radius: 50%;\r\n}\r\n  \r\n.circleOrange {\r\n    margin: 0 auto;\r\n    width: 20px;\r\n    height: 20px;\r\n    background: rgb(255, 123, 71);\r\n    border: 1px solid rgb(66, 65, 65);\r\n    border-radius: 50%;\r\n}\r\n  \r\n.circleGreen {\r\n    margin: 0 auto;\r\n    width: 20px;\r\n    height: 20px;\r\n    background: rgb(3, 105, 16);\r\n    border: 1px solid rgb(66, 65, 65);\r\n    border-radius: 50%;\r\n}\r\n  \r\n.container.trasactionFilter{\r\n    padding-top: 20px;\r\n}\r\n  \r\n.mat-form-field.filterSearch{\r\n    width: 100%;\r\n}"
+module.exports = ".container {\r\nmax-width: 100%;\r\n}\r\n\r\ntable {\r\nwidth: 100%;\r\n}\r\n\r\n.mat-elevation-z8{\r\nwidth: 100%;\r\n}\r\n\r\ntd.mat-cell{\r\npadding: 4px;\r\n}\r\n\r\ntd.mat-cell.cdk-column-statusid.mat-column-statusid.ng-star-inserted{\r\ntext-align: center;\r\n}\r\n\r\ntd.mat-cell.cdk-column-messagetypeid.mat-column-messagetypeid.ng-star-inserted{\r\ntext-align: center;\r\n}\r\n\r\ntd.mat-cell.cdk-column-systemcode.mat-column-systemcode.ng-star-inserted{\r\ntext-align: center;\r\n}\r\n\r\n/* \r\ntd.mat-cell.cdk-column-messagetypeid {\r\nbackground-color: aquamarine;\r\n} */\r\n\r\nmat-form-field.mat-form-field.ng-tns-c8-11.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-hide-placeholder{\r\nwidth: 100%;\r\n}\r\n\r\n.example-container {\r\n\r\n}\r\n\r\n.example-loading-shade {\r\nposition: absolute;\r\ntop: 0;\r\nleft: 0;\r\nbottom: 56px;\r\nright: 0;\r\nbackground: rgba(0, 0, 0, 0.15);\r\nz-index: 1;\r\ndisplay: flex;\r\nalign-items: center;\r\njustify-content: center;\r\n}\r\n\r\ntr.mat-row.ng-star-inserted:hover {\r\nbackground: #e2e2e2;\r\n}\r\n\r\n.circleRed {\r\nmargin: 0 auto;\r\nwidth: 20px;\r\nheight: 20px;\r\nbackground: rgb(221, 22, 22);\r\nborder: 1px solid rgb(66, 65, 65);\r\nborder-radius: 50%;\r\n}\r\n\r\n.circleOrange {\r\nmargin: 0 auto;\r\nwidth: 20px;\r\nheight: 20px;\r\nbackground: rgb(255, 123, 71);\r\nborder: 1px solid rgb(66, 65, 65);\r\nborder-radius: 50%;\r\n}\r\n\r\n.circleGreen {\r\nmargin: 0 auto;\r\nwidth: 20px;\r\nheight: 20px;\r\nbackground: rgb(3, 105, 16);\r\nborder: 1px solid rgb(66, 65, 65);\r\nborder-radius: 50%;\r\n}\r\n\r\n.container.trasactionFilter{\r\npadding-top: 20px;\r\n}\r\n\r\n.mat-form-field.filterSearch{\r\nwidth: 100%;\r\n}"
 
 /***/ }),
 
@@ -930,7 +1065,7 @@ module.exports = ".container {\r\n    max-width: 100%;\r\n  }\r\n  \r\ntable {\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container trasactionFilter\">\n  <div class=\"row\">\n    <div class=\"col\">\n      <mat-form-field>\n        <input matInput placeholder=\"Date From\" [value]=\"_parentFilterGrid.pickerStartFrom | date:'dd-MM-yyyy'\" readonly>\n      </mat-form-field>\n    </div>\n    <div class=\"col\">\n      <mat-form-field>\n        <input matInput placeholder=\"Date To\" [value]=\"_parentFilterGrid.pickerStartTo | date:'dd-MM-yyyy'\" readonly>\n      </mat-form-field>\n    </div>\n    <div class=\"col\">\n      <mat-form-field>\n        <input matInput placeholder=\"Status ID\" [value]=\"_parentFilterGrid.statusIdSelected.value\" readonly>\n      </mat-form-field>\n    </div>\n    <div class=\"col\">\n      <mat-form-field>\n        <input matInput placeholder=\"System Code\" [value]=\"_parentFilterGrid.systemCodeSelected.value\" readonly>\n      </mat-form-field>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md-8\">\n      <mat-form-field class=\"filterSearch\">\n        <input maxlength=\"50\" matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter by (system code, Transactionguid, Message)\">\n      </mat-form-field>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col\">\n      <div class=\"mat-elevation-z8\">\n          <mat-paginator #paginator [length]=\"dataSource.data.length\" [pageIndex]=\"0\" [pageSize]=\"15\" [pageSizeOptions]=\"[15, 25, 50, 100, 250]\">\n            </mat-paginator>\n        <div class=\"example-container mat-elevation-z8\">\n\n\n          <div class=\"example-loading-shade\" *ngIf=\"isLoadingResults\">\n            <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n          </div>\n\n          <table mat-table #table [trackBy]=\"trackByIndex\" [dataSource]=\"dataSource\" matSort aria-label=\"Elements\">\n            <!-- Id Column -->\n            <ng-container matColumnDef=\"id\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.id}}</td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"statusid\" class=\"cellCenter\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>\n              <td mat-cell *matCellDef=\"let row\" >\n                <div [class]=\"colourCircle[row.statusid]\"></div>\n              </td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"systemcode\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>System Code</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.systemcode}}</td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"messagetypeid\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Message TypeId</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.messagetypeid}}</td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"transactionguid\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Transactionguid</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.transactionguid}}</td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"message\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Message</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.message | truncate:[200, '...']}}</td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"insertdate\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Insert Date</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.insertdate | date:\"MM/dd/yyyy hh:mm\"}}</td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"lastupdatedate\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Lastupdate Date</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.lastupdatedate | date:\"MM/dd/yyyy hh:mm\"}}</td>\n            </ng-container>\n\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n          </table>\n\n          <mat-paginator #paginator [length]=\"dataSource.data.length\" [pageIndex]=\"0\" [pageSize]=\"15\" [pageSizeOptions]=\"[15, 25, 50, 100, 250]\">\n          </mat-paginator>\n        </div>\n\n      </div>\n    </div>\n\n  </div>"
+module.exports = "<div class=\"container trasactionFilter\">\n  <div class=\"row\">\n    <div class=\"col\">\n      <mat-form-field>\n        <input matInput placeholder=\"Date From\" [value]=\"_parentFilterGrid.pickerStartFrom | date:'dd-MM-yyyy'\" readonly>\n      </mat-form-field>\n    </div>\n    <div class=\"col\">\n      <mat-form-field>\n        <input matInput placeholder=\"Date To\" [value]=\"_parentFilterGrid.pickerStartTo | date:'dd-MM-yyyy'\" readonly>\n      </mat-form-field>\n    </div>\n    <div class=\"col\">\n      <mat-form-field>\n        <input matInput placeholder=\"Status ID\" [value]=\"_parentFilterGrid.statusIdSelected.value\" readonly>\n      </mat-form-field>\n    </div>\n    <div class=\"col\">\n      <mat-form-field>\n        <input matInput placeholder=\"System Code\" [value]=\"_parentFilterGrid.systemCodeSelected.value\" readonly>\n      </mat-form-field>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md-8\">\n      <mat-form-field class=\"filterSearch\">\n        <input maxlength=\"50\" matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter by (system code, Transactionguid, Message)\">\n      </mat-form-field>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col\">\n      <div class=\"mat-elevation-z8\">\n        <mat-paginator #paginator [length]=\"dataSource.data.length\" [pageIndex]=\"0\" [pageSize]=\"15\" [pageSizeOptions]=\"[15, 25, 50, 100, 250]\">\n        </mat-paginator>\n        <div class=\"example-container mat-elevation-z8\">\n\n\n          <div class=\"example-loading-shade\" *ngIf=\"isLoadingResults\">\n            <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n          </div>\n\n          <table mat-table #table [trackBy]=\"trackByIndex\" [dataSource]=\"dataSource\" matSort aria-label=\"Elements\">\n            <!-- Id Column -->\n            <ng-container matColumnDef=\"id\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.id}}</td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"statusid\" class=\"cellCenter\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>\n              <td mat-cell *matCellDef=\"let row\">\n                <div [class]=\"colourCircle[row.statusid]\"></div>\n              </td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"systemcode\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>System Code</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.systemcode}}</td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"messagetypeid\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Message TypeId</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.messagetypeid}}</td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"transactionguid\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Transactionguid</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.transactionguid}}</td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"message\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Message</th>\n              <td mat-cell *matCellDef=\"let row\" matTooltip=\"{{row.message}}\">{{row.message | truncate:[200, '...']}}</td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"insertdate\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Insert Date</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.insertdate | date:\"MM/dd/yyyy hh:mm\"}}</td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"lastupdatedate\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header>Lastupdate Date</th>\n              <td mat-cell *matCellDef=\"let row\">{{row.lastupdatedate | date:\"MM/dd/yyyy hh:mm\"}}</td>\n            </ng-container>\n\n            <!-- INPUT Column -->\n            <ng-container matColumnDef=\"input\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header></th>\n              <td mat-cell *matCellDef=\"let row\"><a mat-raised-button routerLink=\"/input\" matTooltip=\"Info about the action\">input</a></td>\n            </ng-container>\n\n            <!-- OUTPUT Column -->\n            <ng-container matColumnDef=\"output\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header></th>\n              <td mat-cell *matCellDef=\"let row\"><a mat-raised-button routerLink=\"/output\">output</a></td>\n            </ng-container>\n\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n          </table>\n        </div>\n\n      </div>\n    </div>\n\n  </div>"
 
 /***/ }),
 
@@ -979,6 +1114,8 @@ var TableTransactionComponent = /** @class */ (function () {
             'message',
             'insertdate',
             'lastupdatedate',
+            'input',
+            'output'
         ];
     }
     TableTransactionComponent.prototype.ngOnInit = function () {
@@ -1155,18 +1292,19 @@ var environment = {
 
 /***/ }),
 
-/***/ "./src/http/DnnInterceptor.ts":
-/*!************************************!*\
-  !*** ./src/http/DnnInterceptor.ts ***!
-  \************************************/
-/*! exports provided: DnnInterceptor */
+/***/ "./src/http/interceptor.ts":
+/*!*********************************!*\
+  !*** ./src/http/interceptor.ts ***!
+  \*********************************/
+/*! exports provided: Interceptor */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DnnInterceptor", function() { return DnnInterceptor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Interceptor", function() { return Interceptor; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_dnncontext_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/dnncontext.service */ "./src/service/dnncontext.service.ts");
+/* harmony import */ var _service_context_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/context.service */ "./src/service/context.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1178,38 +1316,38 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-var DnnInterceptor = /** @class */ (function () {
-    function DnnInterceptor(ctx) {
-        this.ctx = ctx;
-        this.context = this.ctx.getServiceFramework();
-        console.log('DNN this.context:' + this.context);
+
+var Interceptor = /** @class */ (function () {
+    function Interceptor(context) {
+        this.context = context;
+        context.autoConfigure();
     }
-    DnnInterceptor.prototype.intercept = function (request, next) {
-        if (this.context != null) {
-            console.log('​---------------------');
-            console.log('​DnnInterceptor -> ', 'ok');
-            console.log('​---------------------');
-            request = request.clone({
+    Interceptor.prototype.intercept = function (req, next) {
+        var _this = this;
+        console.log('TCL: ----------------------------');
+        console.log('TCL: Interceptor -> req', req);
+        console.log('TCL: ----------------------------');
+        return this.context.all$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(10)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["mergeMap"])(function (ctx) {
+            console.log('TCL: ----------------------------');
+            console.log('TCL: Interceptor -> ctx', ctx);
+            console.log('TCL: ----------------------------');
+            // Clone the request and update the url with 2sxc params.
+            var newReq = req.clone({
                 setHeaders: {
-                    ModuleId: this.context.moduleId.toString(),
-                    TabId: this.context.tabId.toString(),
-                    RequestVerificationToken: this.context.antiForgeryToken,
-                    'X-Debugging-Hint': 'bootstrapped by bbAngular',
+                    ModuleId: _this.context._moduleId.toString(),
+                    TabId: ctx.tabId.toString(),
+                    RequestVerificationToken: ctx.antiForgeryToken,
+                    'X-Debugging-Hint': 'bootstrapped by bbAngular and 2SXC',
                 }
             });
-        }
-        else {
-            console.log('​---------------------');
-            console.log('​DnnInterceptor -> ', 'ko');
-            console.log('​---------------------');
-        }
-        return next.handle(request);
+            return next.handle(newReq);
+        }));
     };
-    DnnInterceptor = __decorate([
+    Interceptor = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_service_dnncontext_service__WEBPACK_IMPORTED_MODULE_1__["DnnContextService"]])
-    ], DnnInterceptor);
-    return DnnInterceptor;
+        __metadata("design:paramtypes", [_service_context_service__WEBPACK_IMPORTED_MODULE_1__["Context"]])
+    ], Interceptor);
+    return Interceptor;
 }());
 
 
@@ -1241,6 +1379,167 @@ if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].produc
 }
 Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
     .catch(function (err) { return console.log(err); });
+
+
+/***/ }),
+
+/***/ "./src/service/context.service.ts":
+/*!****************************************!*\
+  !*** ./src/service/context.service.ts ***!
+  \****************************************/
+/*! exports provided: Context */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Context", function() { return Context; });
+/* harmony import */ var _dev_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dev-context */ "./src/service/dev-context.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+
+var Context = /** @class */ (function () {
+    function Context(devSettings) {
+        this.devSettings = devSettings;
+        // todo: probably should set the replay-buffer to 1 for all the following, but must test!
+        this.tidSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["ReplaySubject"](1);
+        this.cbIdSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["ReplaySubject"](1);
+        this.afTokenSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["ReplaySubject"](1);
+        this._properties = {};
+        this._moduleId = "";
+        this.tabId$ = this.tidSubject.asObservable();
+        this.antiForgeryToken$ = this.afTokenSubject.asObservable();
+        this.all$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"])(this.tabId$, // wait for tabId
+        this.antiForgeryToken$) // wait for security token
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (res) { return ({
+            tabId: res[0],
+            antiForgeryToken: res[1]
+        }); }));
+        // Dev settings with minimal ignore settings.
+        this.devSettings = Object.assign({}, {
+            ignoreMissing$2sxc: false,
+            ignoreMissingServicesFramework: false
+        }, devSettings);
+        var MODULE = 'AngularNGMD';
+        if (window && window[MODULE]) {
+            this._properties = window[MODULE];
+            console.log('​-----------------------------------------------------------------------');
+            console.log('​DnnContextService -> constructor -> this._properties', this._properties);
+            console.log('​-----------------------------------------------------------------------');
+        }
+        else {
+            console.log('----------------------');
+            console.log('ERROR: Missing window[MODULE] for DNN');
+            console.log('----------------------');
+        }
+    }
+    Context.prototype.autoConfigure = function () {
+        var _this = this;
+        this._moduleId = this._properties.ModuleId;
+        // Check if DNN Services framework exists.
+        if (window.$ && window.$.ServicesFramework) {
+            console.log('TCL: ----------------------------------------------------------------------------');
+            console.log('TCL: autoConfigure -> window.$.ServicesFramework', window.$.ServicesFramework);
+            console.log('TCL: ----------------------------------------------------------------------------');
+            // Run timer till sf is ready, but max for a second.
+            var t_1 = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["timer"])(0, 100)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(10))
+                .subscribe(function (x) {
+                // This must be accessed after a delay, as the SF is not ready yet.
+                var sf = window.$.ServicesFramework();
+                console.log('TCL: ----------------------------');
+                console.log('TCL: autoConfigure -> sf', sf);
+                console.log('TCL: ----------------------------');
+                // Check if sf is initialized.
+                if (sf.getAntiForgeryValue() && sf.getTabId() !== -1) {
+                    t_1.unsubscribe();
+                    console.log('TCL: ----------------------------');
+                    console.log('TCLqqqqqqqqqqqqqqqqqqqqqq: autoConfigure -> sf', window.$.ServicesFramework().getTabId());
+                    console.log('TCL: ----------------------------');
+                    _this.tidSubject.next(sf.getTabId());
+                    _this.afTokenSubject.next(sf.getAntiForgeryValue());
+                }
+                else {
+                    console.log('TCL: ----------------------------');
+                    console.log('RESET', sf);
+                    console.log('TCL: ----------------------------');
+                    // Must reset, as they are incorrectly initialized when accessed early.
+                    if (window.dnn && window.dnn.vars && window.dnn.vars.length === 0) {
+                        window.dnn.vars = null;
+                    }
+                }
+            });
+            return;
+        }
+        if (!this.devSettings.ignoreMissingServicesFramework) {
+            throw new Error("\n                DNN Services Framework is missing, and it's not allowed according to devSettings.\n                Either set devSettings to ignore this, or ensure it's there");
+        }
+        this.tidSubject.next(this.devSettings.tabId);
+        this.afTokenSubject.next(this.devSettings.antiForgeryToken);
+    };
+    Context = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root',
+        }),
+        __param(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
+        __metadata("design:paramtypes", [_dev_context__WEBPACK_IMPORTED_MODULE_0__["DevContext"]])
+    ], Context);
+    return Context;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/service/dev-context.ts":
+/*!************************************!*\
+  !*** ./src/service/dev-context.ts ***!
+  \************************************/
+/*! exports provided: DevContext */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DevContext", function() { return DevContext; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var DevContext = /** @class */ (function () {
+    function DevContext() {
+        this.ignoreMissing$2sxc = false;
+        this.ignoreMissingServicesFramework = false;
+        this.forceUse = false;
+        this.moduleId = 0;
+        this.tabId = 0;
+        this.path = '/';
+    }
+    DevContext = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()
+    ], DevContext);
+    return DevContext;
+}());
+
 
 
 /***/ }),
@@ -1364,6 +1663,9 @@ var DnnContextService = /** @class */ (function () {
     });
     Object.defineProperty(DnnContextService.prototype, "resources", {
         get: function () {
+            console.log('TCL: ------------------------------------------------------------------------------------------------');
+            console.log('TCL: DnnContextService -> getresources -> this._properties.Resources', this._properties.Resources);
+            console.log('TCL: ------------------------------------------------------------------------------------------------');
             return this._properties.Resources;
         },
         enumerable: true,

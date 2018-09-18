@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="Angularmodule" type="Module" version="01.00.00">
+    <package name="TemplateDNN9NG6" type="Module" version="01.00.00">
       <friendlyName>Angular module</friendlyName>
       <description>An Angular6 template</description>
       <iconFile>DesktopModules/Angularmodule/BBAngular.png</iconFile>
@@ -33,7 +33,7 @@
         </component>
         <component type="Module">
           <desktopModule>
-            <moduleName>Angularmodule</moduleName>
+            <moduleName>TemplateDNN9NG6</moduleName>
             <foldername>Angularmodule</foldername>
             <businessControllerClass />
             <supportedFeatures />
@@ -47,7 +47,7 @@
                     <controlSrc>DesktopModules/Angularmodule/View.ascx</controlSrc>
                     <supportsPartialRendering>false</supportsPartialRendering>
                     <supportsPopUps>false</supportsPopUps>
-                    <controlTitle>Angularmodule</controlTitle>
+                    <controlTitle>TemplateDNN9NG6</controlTitle>
                     <controlType>View</controlType>
                     <helpUrl />
                   </moduleControl>
@@ -60,7 +60,7 @@
           <assemblies>
             <assembly>
               <path>bin</path>
-              <name>Angularmodule.dll</name>
+              <name>TemplateDNN9NG6.dll</name>
             </assembly>
           </assemblies>
         </component>
