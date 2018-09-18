@@ -60,7 +60,7 @@
           <assemblies>
             <assembly>
               <path>bin</path>
-              <name>TemplateDNN9NG6.dll</name>
+              <name>TemplateDNN7NG6.dll</name>
             </assembly>
           </assemblies>
         </component>

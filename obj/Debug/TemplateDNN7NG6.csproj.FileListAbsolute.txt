@@ -1,0 +1,4 @@
+D:\inetpub\www\SOL-Rainbow\Site\bin\TemplateDNN7NG6.dll
+D:\inetpub\www\SOL-Rainbow\Site\bin\TemplateDNN7NG6.pdb
+D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\obj\Debug\TemplateDNN7NG6.dll
+D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\obj\Debug\TemplateDNN7NG6.pdb
