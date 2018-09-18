@@ -43,9 +43,9 @@
     });
 </script>--%>
 
-this.ControlPath
-<%=ControlPath.ToLower()%>
-<base href="/TestNG6TemplatePage/tabid/9424/language/it-IT/Default.aspx/">
+this.ControlName
+<%= PortalSettings.CultureCode%>
+<base href="<%= Request.RawUrl%>">
 <app-root-md>
     <p>Loading...</p>
 </app-root-md>
@@ -63,26 +63,26 @@ this.ControlPath
                 "AllowIndex": "True"
             },
             "IsEditable": <%= Editable.ToString().ToLower()%>,
-            "EditMode": false,
+            "EditMode": <%= EditMode.ToString().ToLower() %>,
             "IsAdmin": false,
             "ModuleId": <%=ModuleId%>,
             "PortalId": <%= PortalId %>,
             "UserId": <%= UserId %>,
             "HomeDirectory": "Portals/<%= PortalId %>/",
             "ModuleDirectory": "<%=ControlPath%>",
-            "RawUrl": "/TestangularModule6Page/tabid/9423/language/it-IT",
-            "PortalLanguages": ["it-IT"],
+            "RawUrl": "<%= Request.RawUrl%>",
+            "PortalLanguages": ["<%= PortalSettings.CultureCode%>"],
             "CurrentLanguage": "it-IT",
             "Users": [],
             "TabId": <%= TabId %>,
             "locale": $("html").attr("lang"),
         }
-    console.log('111111111111-starting antiforgeryvalue: ' + window.$.ServicesFramework().getAntiForgeryValue());
+    console.log('111111111111-starting antiforgeryvalue: ' + window.$.ServicesFramework(<%=ModuleId%>).getAntiForgeryValue());
 </script>
 
 <script>
     jQuery(document).ready(function() {
-        console.log('starting antiforgeryvalue: ' + window.$.ServicesFramework().getAntiForgeryValue());
+        console.log('starting antiforgeryvalue +: ' + window.$.ServicesFramework(<%=ModuleId%>).getAntiForgeryValue());
     });
 
 </script>

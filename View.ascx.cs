@@ -45,6 +45,15 @@ namespace Angularmodule
             }
         }
 
+
+        protected string OriginalUrl
+        {
+            get
+            {
+                return Context.Items["UrlRewrite:OriginalUrl"].ToString();
+            }
+        }
+
         protected string ModuleSettings
         {
             get
