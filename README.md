@@ -1,4 +1,4 @@
-# Visual studio Templare form based for DNN 7.x, 8.x, 9.x.
+# Visual studio Templare for DNN 7.x, 8.x, 9.x.
 This is a complete template DNN module .ascx for DNN 7.x useful for legacy DNN.
 If you need SPA module inside DNN 9.x -> [coming soon]
 
