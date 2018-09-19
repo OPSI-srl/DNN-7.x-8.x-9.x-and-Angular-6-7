@@ -19,7 +19,7 @@ Frontend developer should love it.
 4. How to use DNN webapi and angular
 
 # Features
-## Automatic Routing with Angular app
+### Automatic Routing with Angular app
 
 ```html 
 <base href="<%= Request.RawUrl%>">
@@ -78,20 +78,23 @@ Example:
 - "TabId": 9424,
 - "locale": $("html").attr("lang"),
 
-# You must use DNN WebAPI:
+### You must use DNN WebAPI:
 You should use DNN webapi, so you can use [DnnAuthorize] and [ValidateAntiForgeryToken]
 
 `<link>` : https://talkdotnet.wordpress.com/tag/dnnauthorize/
 
 `<link>` : http://www.dnnsoftware.com/community-blog/cid/144400/webapi-tips
 
-To work you should pass 3 variable via http header to DNN. The solution is to intercept http from Angular (this is explain in Angular cli project). Now you should just know that you need these variable:
+You should pass 3 variable via http header to DNN. The solution is to intercept http from Angular (this is explain in Angular cli project). Now you should just know that you need these variables:
 
 1. **moduleId**:
 2. **tabId**: 
 3. **antiForgeryToken**: is created by $.ServicesFramework 
 
 `<link>` : (http://www.dnnsoftware.com/wiki/services-framework-webapi)
+
+### Automatic loading from desktopmodule and version control
+Version control for now is indipendent from DNN, next relese I will take dnn version.
 
 
 ```html 
@@ -101,28 +104,35 @@ To work you should pass 3 variable via http header to DNN. The solution is to in
 <script src="<%= ControlPath %>dist/vendor.js<%= version %>"></script>
 <script src="<%= ControlPath %>dist/main.js<%= version %>"></script>
 ```
+### From codebehind of your .ascx
+From codebehind of your .ascx you can pass whatever you want to angular.
 
-# Step by step
-1. Create a Folder "Demo-Angular6" inside your DNN /desktopmodule/Demo-Angular6/
+### Automatic build DNN modul for installation inside DNN
+[I need to tested, sholud work this template is from Torsten Weggen - bitboxx.com]
+Building DNN package via visual studio on build Release. 
+
+
+# What you need to do step by step:
+1. Create a Folder (example: "Demo-Angular6") inside your DNN /desktopmodule/Demo-Angular6/
 2. Clone this project from git inside /desktopmodule/Demo-Angular6/ (all files should be in root folder)
 3. Open TemplateDNN7NG6.sln with visual studio 2015
-4. (you should change this project with your name project)
-- 
-- 
-- 
-- 
-- 
-5. Build your solution and check any error.
-6. Register Module on your DNN
+4. Re-naming the project/solution
+5. Change Assembly name and Namespace
+6. Maybe change guid project (I need to check)
+7. In file view.ascx.cs change namespace
+8. Change ZipFileNamePrefix and DesktopFolderName for correct building name. File \Installation\Project.targets line 38 and 39.
+9. Build your solution and check any error.
+10. Check if in your bin your dll project (Demo-Angular6.dll)
+11. Register Module on your DNN
 - host->Estension->Create new module
 - select control module 
 - select module file
 - Select resource: view.ascx
 - insert module name: Demo Angular 6
-4. Add new page
-5. Add your module inside page
-6. Publish/copy your angular files inside dist folder (/desktopmodule/Demo-Angular6/dist/)
-7. Open View.ascs file
+12. Add new page
+13. Add your module inside page
+14. Publish/copy your angular files inside dist folder (/desktopmodule/Demo-Angular6/dist/)
+15. Open View.ascs file
 - change selector "app-root-md" with the same on your Angular module (app.component.ts)
 
 ```html 
