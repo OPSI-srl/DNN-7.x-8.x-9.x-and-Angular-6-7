@@ -1,9 +1,7 @@
 # Visual studio Template for DNN 7.x, 8.x, 9.x.
 This is a complete template DNN module .ascx for DNN 7.x and Angular 6. Useful for legacy DNN.
 
-[coming soon] 
-
-SPA module inside DNN 9.x.
+[coming soon] SPA module inside DNN 9.x.
 
 # Description
 To handle an Angular 6 project with DNN you need 2 different project:
