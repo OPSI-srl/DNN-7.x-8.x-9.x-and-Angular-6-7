@@ -26,21 +26,21 @@ View.ascx have all information for booting angolar 6 and DNN
 # Feature
 Automatic Routing with Angualar app 
 Passing information form DNN to Angular:
-    "routingWebAPI": routing 
-    "IsEditable": 
-    "EditMode": ,
-    "IsAdmin": [next release]
-    "ModuleId": 
-    "PortalId": 
-    "UserId": 
-    "HomeDirectory": 
-    "ModuleDirectory": 
-    "RawUrl": 
-    "PortalLanguages": 
-    "CurrentLanguage": [next release]
-    "Users": [next release]
-    "TabId": 
-    "locale": 
+- "routingWebAPI": routing 
+- "IsEditable": 
+- "EditMode": ,
+- "IsAdmin": [next release]
+- "ModuleId": 
+- "PortalId": 
+- "UserId": 
+- "HomeDirectory": 
+- "ModuleDirectory": 
+- "RawUrl": 
+- "PortalLanguages": 
+- "CurrentLanguage": [next release]
+- "Users": [next release]
+- "TabId": 
+- "locale": 
 
 Example:
     "routingWebAPI": "/DesktopModules/MyDemo/API/",
