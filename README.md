@@ -1,5 +1,6 @@
-# Visual studio Templare for DNN 7.x, 8.x, 9.x.
+# Visual studio Template for DNN 7.x, 8.x, 9.x.
 This is a complete template DNN module .ascx for DNN 7.x useful for legacy DNN.
+
 If you need SPA module inside DNN 9.x -> [coming soon]
 
 # Description
@@ -8,6 +9,7 @@ To handle an Angular 6 project with DNN you need 2 different project:
 2. DNN module that host your angular (this project)
 
 This is a best practice for your developer frontend is independent from DNN.
+
 Frontend developer should love it.
 
 # Issues resolved with DNN 7.x and Angular 6
