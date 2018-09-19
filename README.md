@@ -1,7 +1,7 @@
 # Visual studio Template for DNN 7.x, 8.x, 9.x.
 This is a complete template DNN module .ascx for DNN 7.x and Angular 6. Useful for legacy DNN.
 
-[coming soon] SPA module inside DNN 9.x.
+**[coming soon]** SPA module inside DNN 9.x.
 
 # Description
 To handle an Angular 6 project with DNN you need 2 different project:
@@ -122,7 +122,7 @@ Building DNN package via visual studio on build Release.
 7. In file view.ascx.cs change namespace
 8. **[Skip for now]** Change ZipFileNamePrefix and DesktopFolderName for correct building name. File \Installation\Project.targets line 38 and 39.
 9. Build your solution and check any error.
-10. Check if in your bin your dll project (Demo-Angular6.dll)
+10. Check in bin folder your dll project (Demo-Angular6.dll)
 11. Register Module on your DNN
 - host->Estension->Create new module
 - select control module 
@@ -149,7 +149,7 @@ Building DNN package via visual studio on build Release.
 ```
 
 # Missinig important activity
-1. Loading Multilangua resources [Next release]
+1. Loading Multilanguage resources [Next release]
 2. Building DNN package via visual studio on Release build. (I need to tested, sholud work this tempalte is from Torsten Weggen - bitboxx)
 
 # Reference
