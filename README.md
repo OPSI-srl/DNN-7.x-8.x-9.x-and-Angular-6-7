@@ -79,7 +79,7 @@ Example:
 - "locale": $("html").attr("lang"),
 
 # You must use DNN WebAPI:
-You shold use DNN webapi, so you can use [DnnAuthorize] and [ValidateAntiForgeryToken]
+You should use DNN webapi, so you can use [DnnAuthorize] and [ValidateAntiForgeryToken]
 
 `<link>` : https://talkdotnet.wordpress.com/tag/dnnauthorize/
 
