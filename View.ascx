@@ -5,9 +5,9 @@
 <%-- 
  1 -> Rename Angular selector
  --%>
-<app-root-md>
+<app-root>
     <p>Loading...</p>
-</app-root-md>
+</app-root>
 
 <script>
    var serviceFramework = $.ServicesFramework(parseInt('<%=ModuleId %>'));

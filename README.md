@@ -4,7 +4,7 @@ This is a complete template DNN module .ascx for DNN 7.x and Angular 6. Useful f
 **[coming soon]** SPA module inside DNN 9.x.
 
 # Description
-To handle an Angular 6 project with DNN you need 2 different project:
+To Develop Angular 6 project with DNN you need 2 different project:
 1. Angular CLI project
 2. DNN module that host your angular (this project)
 
@@ -119,7 +119,9 @@ Building DNN package via visual studio on build Release.
 4. Re-naming the project/solution
 5. Change Assembly name and Namespace
 6. Maybe change guid project (I need to check)
-7. In file view.ascx.cs change namespace
+7. Inside file view.ascx.cs change namespace
+8. Inside file view.ascx change Inherits
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="View.ascx.cs" **Inherits="DemoAngular6.View"** %>
 8. **[Skip for now]** Change ZipFileNamePrefix and DesktopFolderName for correct building name. File \Installation\Project.targets line 38 and 39.
 9. Build your solution and check any error.
 10. Check in bin folder your dll project (Demo-Angular6.dll)
@@ -132,7 +134,7 @@ Building DNN package via visual studio on build Release.
 12. Add new page
 13. Add your module inside page
 14. Publish/copy your angular files inside dist folder (/desktopmodule/Demo-Angular6/dist/)
-15. Open View.ascs file
+15. Open View.ascx file
 - change selector "app-root-md" with the same on your Angular module (app.component.ts)
 
 ```html 
