@@ -65,12 +65,6 @@ DNN WebAPI variable needed:
 2. tabId: 
 3. antiForgeryToken: is created by $.ServicesFramework (http://www.dnnsoftware.com/wiki/services-framework-webapi)
 
-# Reference
-This project is made from these important resources:
-- http://www.bitboxx.net/Blog/Post/525/DNN-module-development-with-Angular-2-Part-7#/
-- https://2sxc.org/en/blog/post/how-to-correctly-connect-dnn-to-angular-4-5-using-reactive-javascript
-- https://github.com/2sic/dnn-sxc-angular
-
 # Missinig important activity
 1. Loading Multilangua resources [Next release]
 
@@ -103,3 +97,11 @@ This project is made from these important resources:
 - change
 -
 window["AngularNGMD"] =
+
+
+
+# Reference
+This project is made from these important resources:
+`<link>` : http://www.bitboxx.net/Blog/Post/525/DNN-module-development-with-Angular-2-Part-7#/
+`<link>` : https://2sxc.org/en/blog/post/how-to-correctly-connect-dnn-to-angular-4-5-using-reactive-javascript
+`<link>` : https://github.com/2sic/dnn-sxc-angular
