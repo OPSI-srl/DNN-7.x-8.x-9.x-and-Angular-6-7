@@ -12,9 +12,9 @@
 <script>
    var serviceFramework = $.ServicesFramework(parseInt('<%=ModuleId %>'));
 <%-- 
- 2 -> Rename AngularNGMD inside window["AngularNGMD"], with same name in dnncontext.service.ts
+ 2 -> Rename AngularTEMPLATE inside window["AngularTEMPLATE"], with same name in dnncontext.service.ts
  --%>
-    window["AngularNGMD"] =
+    window["AngularTEMPLATE"] =
         {
             "Resources":  {
                 "Example01": "lorem ipsum 01",

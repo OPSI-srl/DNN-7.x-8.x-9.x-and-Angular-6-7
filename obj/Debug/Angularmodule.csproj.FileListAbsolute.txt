@@ -1,5 +1,0 @@
-D:\inetpub\www\SOL-Rainbow\Site\bin\Angularmodule.dll
-D:\inetpub\www\SOL-Rainbow\Site\bin\Angularmodule.pdb
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\obj\Debug\Angularmodule.dll
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\obj\Debug\Angularmodule.pdb
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\obj\Debug\Angularmodule.csprojResolveAssemblyReference.cache

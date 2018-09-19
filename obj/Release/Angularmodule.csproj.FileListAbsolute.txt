@@ -1,7 +1,0 @@
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\bin\Release\Angularmodule.dll
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\bin\Release\Angularmodule.pdb
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\bin\Release\System.Web.Http.dll
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\bin\Release\System.Web.Http.xml
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\obj\Release\Angularmodule.csprojResolveAssemblyReference.cache
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\obj\Release\Angularmodule.dll
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\obj\Release\Angularmodule.pdb

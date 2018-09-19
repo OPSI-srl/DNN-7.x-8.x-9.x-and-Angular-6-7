@@ -1,6 +1,0 @@
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\bin\Release\TemplateDNN7NG6.dll
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\bin\Release\TemplateDNN7NG6.pdb
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\bin\Release\System.Web.Http.dll
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\bin\Release\System.Web.Http.xml
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\obj\Release\TemplateDNN7NG6.dll
-D:\inetpub\www\SOL-Rainbow\Site\DesktopModules\NG6Template\obj\Release\TemplateDNN7NG6.pdb
