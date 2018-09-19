@@ -94,12 +94,18 @@ DNN WebAPI variable needed:
     <app-root-md>
     <p>Loading...</p>
     </app-root-md>
-    
+
 - change
 -
 window["AngularNGMD"] =
 
-
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
 
 # Reference
 This project is made from these important resources:
