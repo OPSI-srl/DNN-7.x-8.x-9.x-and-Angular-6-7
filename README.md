@@ -93,7 +93,7 @@ You should pass 3 variable via http header to DNN. The solution is to intercept 
 
 `<link>` : (http://www.dnnsoftware.com/wiki/services-framework-webapi)
 
-### Automatic loading from desktopmodule and version control
+### Automatic build zip file module for DNN
 Version control for now is indipendent from DNN, next relese I will take dnn version.
 
 
@@ -107,7 +107,7 @@ Version control for now is indipendent from DNN, next relese I will take dnn ver
 ### From codebehind of your .ascx
 From codebehind of your .ascx you can pass whatever you want to angular.
 
-### Automatic build DNN modul for installation inside DNN
+### Visual Studio: modulo DNN di compilazione automatica zip
 [I need to test it, this part is from template Torsten Weggen template - bitboxx.com]
 Building your solution with visual studio on **Release mode** automaticaly visual studio make DNN package zip file with all informations.
 
