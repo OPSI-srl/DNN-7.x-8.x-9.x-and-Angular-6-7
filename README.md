@@ -91,9 +91,10 @@ DNN WebAPI variable needed:
 7. Open View.ascs file
 - change
 -
-<app-root-md>
+    <app-root-md>
     <p>Loading...</p>
-</app-root-md>
+    </app-root-md>
+    
 - change
 -
 window["AngularNGMD"] =
@@ -102,6 +103,7 @@ window["AngularNGMD"] =
 
 # Reference
 This project is made from these important resources:
+
 `<link>` : http://www.bitboxx.net/Blog/Post/525/DNN-module-development-with-Angular-2-Part-7#/
 
 `<link>` : https://2sxc.org/en/blog/post/how-to-correctly-connect-dnn-to-angular-4-5-using-reactive-javascript
