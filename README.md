@@ -78,13 +78,14 @@ Example:
 - "TabId": 9424,
 - "locale": $("html").attr("lang"),
 
-# DNN WebAPI variable needed:
+# You must use DNN WebAPI:
 You shold use DNN webapi, so you can use [DnnAuthorize] and [ValidateAntiForgeryToken]
 
 `<link>` : https://talkdotnet.wordpress.com/tag/dnnauthorize/
 `<link>` : http://www.dnnsoftware.com/community-blog/cid/144400/webapi-tips
 
-To use attribute 
+To work you should pass 3 variable via http heade to DNN. The solution is to intercept http from Angular (this is explain in Angular cli project). Now you should just know that you need these variable:
+
 1. moduleId:
 2. tabId: 
 3. antiForgeryToken: is created by $.ServicesFramework 
