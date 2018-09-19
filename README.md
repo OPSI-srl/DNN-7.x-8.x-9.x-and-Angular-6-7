@@ -59,22 +59,6 @@ Passing information from DNN to Angular:
 </script>
 ```
 
-- "routingWebAPI": routing 
-- "IsEditable": 
-- "EditMode": ,
-- "IsAdmin": [next release]
-- "ModuleId": 
-- "PortalId": 
-- "UserId": 
-- "HomeDirectory": 
-- "ModuleDirectory": 
-- "RawUrl": 
-- "PortalLanguages": 
-- "CurrentLanguage": [next release]
-- "Users": [next release]
-- "TabId": 
-- "locale": 
-
 Example:
 - "routingWebAPI": "/DesktopModules/MyDemo/API/",
 - "IsEditable": false,
@@ -95,7 +79,9 @@ Example:
 DNN WebAPI variable needed: 
 1. moduleId:
 2. tabId: 
-3. antiForgeryToken: is created by $.ServicesFramework (http://www.dnnsoftware.com/wiki/services-framework-webapi)
+3. antiForgeryToken: is created by $.ServicesFramework 
+
+`<link>` : (http://www.dnnsoftware.com/wiki/services-framework-webapi)
 
 # Missinig important activity
 1. Loading Multilangua resources [Next release]
