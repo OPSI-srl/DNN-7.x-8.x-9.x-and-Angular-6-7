@@ -120,7 +120,7 @@ Building DNN package via visual studio on build Release.
 5. Change Assembly name and Namespace
 6. Maybe change guid project (I need to check)
 7. In file view.ascx.cs change namespace
-8. Change ZipFileNamePrefix and DesktopFolderName for correct building name. File \Installation\Project.targets line 38 and 39.
+8. [Skip for now] Change ZipFileNamePrefix and DesktopFolderName for correct building name. File \Installation\Project.targets line 38 and 39.
 9. Build your solution and check any error.
 10. Check if in your bin your dll project (Demo-Angular6.dll)
 11. Register Module on your DNN
