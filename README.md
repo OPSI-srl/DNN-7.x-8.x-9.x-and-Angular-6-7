@@ -68,7 +68,7 @@ DNN WebAPI variable needed:
 # Missinig important activity
 1. Loading Multilangua resources [Next release]
 
-# Steps
+# Step by step
 1. Create a Folder "Demo-Angular6" inside your DNN /desktopmodule/Demo-Angular6/
 2. Clone this project from git inside /desktopmodule/Demo-Angular6/ (all files should be in root folder)
 3. Open TemplateDNN7NG6.sln with visual studio 2015
@@ -90,10 +90,12 @@ DNN WebAPI variable needed:
 6. Publish/copy your angular files inside dist folder (/desktopmodule/Demo-Angular6/dist/)
 7. Open View.ascs file
 - change
--
+
+```html
     <app-root-md>
     <p>Loading...</p>
     </app-root-md>
+```
 
 - change
 -
