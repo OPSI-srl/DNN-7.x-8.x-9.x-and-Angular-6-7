@@ -43,21 +43,21 @@ Passing information form DNN to Angular:
 - "locale": 
 
 Example:
-    "routingWebAPI": "/DesktopModules/MyDemo/API/",
-    "IsEditable": false,
-    "EditMode": true,
-    "IsAdmin": false,
-    "ModuleId": 13914,
-    "PortalId": 1,
-    "UserId": 5,
-    "HomeDirectory": "Portals/1/",
-    "ModuleDirectory": "/DesktopModules/DemoTemplate/",
-    "RawUrl": "/MyDemoTemplate/tabid/9424/language/it-IT/Default.aspx/",
-    "PortalLanguages": ["it-IT"],
-    "CurrentLanguage": "it-IT",
-    "Users": [],
-    "TabId": 9424,
-    "locale": $("html").attr("lang"),
+- "routingWebAPI": "/DesktopModules/MyDemo/API/",
+- "IsEditable": false,
+- "EditMode": true,
+- "IsAdmin": false,
+- "ModuleId": 13914,
+- "PortalId": 1,
+- "UserId": 5,
+- "HomeDirectory": "Portals/1/",
+- "ModuleDirectory": "/DesktopModules/DemoTemplate/",
+- "RawUrl": "/MyDemoTemplate/tabid/9424/language/it-IT/Default.aspx/",
+- "PortalLanguages": ["it-IT"],
+- "CurrentLanguage": "it-IT",
+- "Users": [],
+- "TabId": 9424,
+- "locale": $("html").attr("lang"),
 
 Passing information for WebAPI DNN 
     moduleId: 
