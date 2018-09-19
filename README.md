@@ -26,7 +26,7 @@ View.ascx have all information for booting angolar 6 and DNN
 # Feature
 Automatic Routing with Angualar app
 
-Passing information form DNN to Angular:
+Passing information from DNN to Angular:
 - "routingWebAPI": routing 
 - "IsEditable": 
 - "EditMode": ,
@@ -66,10 +66,40 @@ DNN WebAPI variable needed:
 3. antiForgeryToken: is created by $.ServicesFramework (http://www.dnnsoftware.com/wiki/services-framework-webapi)
 
 # Reference
-This project is made from this important resources:
+This project is made from these important resources:
 - http://www.bitboxx.net/Blog/Post/525/DNN-module-development-with-Angular-2-Part-7#/
 - https://2sxc.org/en/blog/post/how-to-correctly-connect-dnn-to-angular-4-5-using-reactive-javascript
 - https://github.com/2sic/dnn-sxc-angular
 
 # Missinig important activity
 1. Loading Multilangua resources [Next release]
+
+# Steps
+1. Create a Folder "Demo-Angular6" inside your DNN /desktopmodule/Demo-Angular6/
+2. Clone this project from git inside /desktopmodule/Demo-Angular6/ (all files should be in root folder)
+3. Open TemplateDNN7NG6.sln with visual studio 2015
+4. (you should change this project with your name project)
+- 
+- 
+- 
+- 
+- 
+5. Build your solution and check any error.
+6. Register Module on your DNN
+- host->Estension->Create new module
+- select control module 
+- select module file
+- Select resource: view.ascx
+- insert module name: Demo Angular 6
+4. Add new page
+5. Add your module inside page
+6. Publish/copy your angular files inside dist folder (/desktopmodule/Demo-Angular6/dist/)
+7. Open View.ascs file
+- change
+-
+<app-root-md>
+    <p>Loading...</p>
+</app-root-md>
+- change
+-
+window["AngularNGMD"] =
