@@ -108,8 +108,8 @@ Version control for now is indipendent from DNN, next relese I will take dnn ver
 From codebehind of your .ascx you can pass whatever you want to angular.
 
 ### Automatic build DNN modul for installation inside DNN
-[I need to tested, sholud work this template is from Torsten Weggen - bitboxx.com]
-Building DNN package via visual studio on build Release. 
+[I need to test it, this part is from template Torsten Weggen template - bitboxx.com]
+Building your solution with visual studio on **Release mode** automaticaly visual studio make DNN package zip file with all informations.
 
 
 # What you need to do step by step:
