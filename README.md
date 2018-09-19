@@ -18,14 +18,14 @@ Frontend developer should love it.
 3. Angulare 6 is too fast to load information than DNN. You need to make all information available to DNN in the correct format.
 4. How to use DNN webapi and angular
 
-# Feature
+# Features
 ## Automatic Routing with Angular app
 
 ```html 
 <base href="<%= Request.RawUrl%>">
 ```
 
-Passing information from DNN to Angular:
+### Passing information from DNN to Angular:
 
 ```javascript 
 <script>
