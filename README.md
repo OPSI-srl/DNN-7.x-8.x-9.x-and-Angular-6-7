@@ -89,24 +89,19 @@ DNN WebAPI variable needed:
 5. Add your module inside page
 6. Publish/copy your angular files inside dist folder (/desktopmodule/Demo-Angular6/dist/)
 7. Open View.ascs file
-- change
+- change selector "app-root-md" with the same on your Angular module (app.component.ts)
 
-```html
+```html 
     <app-root-md>
     <p>Loading...</p>
     </app-root-md>
 ```
 
-- change
--
-window["AngularNGMD"] =
+- change "AngularNGMD"
 
-```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
+```html
+    window["AngularNGMD"] =
+        {
 ```
 
 # Reference
