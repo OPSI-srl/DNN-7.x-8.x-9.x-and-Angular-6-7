@@ -24,7 +24,8 @@ When you build your Angular
 View.ascx have all information for booting angolar 6 and DNN
 
 # Feature
-Automatic Routing with Angualar app 
+Automatic Routing with Angualar app
+
 Passing information form DNN to Angular:
 - "routingWebAPI": routing 
 - "IsEditable": 
@@ -62,13 +63,13 @@ Example:
 DNN WebAPI variable needed: 
 1. moduleId:
 2. tabId: 
-3. antiForgeryToken:
+3. antiForgeryToken: is created by $.ServicesFramework (http://www.dnnsoftware.com/wiki/services-framework-webapi)
 
 # Reference
 This project is made from this important resources:
-http://www.bitboxx.net/Blog/Post/525/DNN-module-development-with-Angular-2-Part-7#/
-https://2sxc.org/en/blog/post/how-to-correctly-connect-dnn-to-angular-4-5-using-reactive-javascript
-https://github.com/2sic/dnn-sxc-angular
+- http://www.bitboxx.net/Blog/Post/525/DNN-module-development-with-Angular-2-Part-7#/
+- https://2sxc.org/en/blog/post/how-to-correctly-connect-dnn-to-angular-4-5-using-reactive-javascript
+- https://github.com/2sic/dnn-sxc-angular
 
 # Missinig important activity
 1. Loading Multilangua resources [Next release]
