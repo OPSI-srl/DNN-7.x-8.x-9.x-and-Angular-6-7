@@ -59,10 +59,10 @@ Example:
 - "TabId": 9424,
 - "locale": $("html").attr("lang"),
 
-Passing information for WebAPI DNN 
-    moduleId: 
-    tabId: 
-    antiForgeryToken:
+DNN WebAPI variable needed: 
+1. moduleId:
+2. tabId: 
+3. antiForgeryToken:
 
 # Reference
 This project is made from this important resources:
