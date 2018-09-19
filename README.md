@@ -13,7 +13,7 @@ This is a best practice for your developer frontend is independent from DNN.
 Frontend developer should love it.
 
 # Issues resolved with DNN 7.x and Angular 6
-1. How to develop your Angular CLI (Tested for Angular CLI: 6.1.2) and deploy inside DNN module.
+1. How to develop your Angular CLI (Tested for Angular CLI: 6.1.2) and deploy inside DNN 7.x.
 2. How to pass information from DNN to Angular
 3. Angulare 6 is too fast to load information than DNN. You need to make all information available to DNN in the correct format.
 4. How to use DNN webapi and angular
@@ -78,7 +78,13 @@ Example:
 - "TabId": 9424,
 - "locale": $("html").attr("lang"),
 
-DNN WebAPI variable needed: 
+# DNN WebAPI variable needed:
+You shold use DNN webapi, so you can use [DnnAuthorize] and [ValidateAntiForgeryToken]
+
+`<link>` : https://talkdotnet.wordpress.com/tag/dnnauthorize/
+`<link>` : http://www.dnnsoftware.com/community-blog/cid/144400/webapi-tips
+
+To use attribute 
 1. moduleId:
 2. tabId: 
 3. antiForgeryToken: is created by $.ServicesFramework 
