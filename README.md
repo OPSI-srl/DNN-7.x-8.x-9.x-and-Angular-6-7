@@ -1,5 +1,5 @@
 # Visual studio Template for DNN 7.x, 8.x, 9.x.
-This is a complete template DNN module .ascx for DNN 7.x useful for legacy DNN.
+This is a complete template DNN module .ascx for DNN 7.x and Angular 6. Useful for legacy DNN.
 
 If you need SPA module inside DNN 9.x -> [coming soon]
 
