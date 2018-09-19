@@ -83,9 +83,6 @@ DNN WebAPI variable needed:
 
 `<link>` : (http://www.dnnsoftware.com/wiki/services-framework-webapi)
 
-# Missinig important activity
-1. Loading Multilangua resources [Next release]
-
 # Step by step
 1. Create a Folder "Demo-Angular6" inside your DNN /desktopmodule/Demo-Angular6/
 2. Clone this project from git inside /desktopmodule/Demo-Angular6/ (all files should be in root folder)
@@ -122,8 +119,12 @@ DNN WebAPI variable needed:
         {
 ```
 
+# Missinig important activity
+1. Loading Multilangua resources [Next release]
+2. Building DNN package via visual studio on Release build. (I need to tested, sholud work this tempalte is from Torsten Weggen - bitboxx)
+
 # Reference
-This project is made from these important resources:
+This project is just an avolution or code encapsulation made from these important resources by Torsten Weggen and Danile Mettler:
 
 `<link>` : http://www.bitboxx.net/Blog/Post/525/DNN-module-development-with-Angular-2-Part-7#/
 
