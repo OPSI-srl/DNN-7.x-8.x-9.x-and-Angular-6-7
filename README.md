@@ -125,8 +125,9 @@ Building your solution with visual studio on **Release mode** automaticaly visua
 8. **[Skip for now]** Change ZipFileNamePrefix and DesktopFolderName for correct building name. File \Installation\Project.targets line 38 and 39.
 9. Build your solution and check any error.
 10. Check in bin folder your dll project (Demo-Angular6.dll)
-11. Register Module on your DNN
-- host->Estension->Create new module
+11. It's time to tegister Module inside your DNN
+- Login as host.
+- Go to host->Estension->Create new module
 - select control module 
 - select module file
 - Select resource: view.ascx
