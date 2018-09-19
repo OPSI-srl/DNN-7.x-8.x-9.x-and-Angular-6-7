@@ -47,10 +47,10 @@
 <script src="<%= ControlPath %>dist/vendor.js<%= version %>"></script>
 <script src="<%= ControlPath %>dist/main.js<%= version %>"></script>
 
-<!-- OPTIONAL form material design -->
+<!-- OPTIONAL it's important if you use material design fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-<!-- OPTIONAL Testing -->
+<!-- OPTIONAL: is useful for testing you can remove it -->
 <script>
     jQuery(document).ready(function() {
         console.log('starting antiforgeryvalue +: ' + window.$.ServicesFramework(<%=ModuleId%>).getAntiForgeryValue());

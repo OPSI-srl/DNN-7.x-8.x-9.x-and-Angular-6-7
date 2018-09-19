@@ -19,7 +19,7 @@ Frontend developer should love it.
 4. How to use DNN webapi and angular
 
 # Feature
-Automatic Routing with Angular app
+## Automatic Routing with Angular app
 
 ```html 
 <base href="<%= Request.RawUrl%>">
@@ -92,6 +92,15 @@ To work you should pass 3 variable via http header to DNN. The solution is to in
 3. **antiForgeryToken**: is created by $.ServicesFramework 
 
 `<link>` : (http://www.dnnsoftware.com/wiki/services-framework-webapi)
+
+
+```html 
+<script src="<%= ControlPath %>dist/runtime.js<%= version %>"></script>
+<script src="<%= ControlPath %>dist/polyfills.js<%= version %>"></script>
+<script src="<%= ControlPath %>dist/styles.js<%= version %>"></script>
+<script src="<%= ControlPath %>dist/vendor.js<%= version %>"></script>
+<script src="<%= ControlPath %>dist/main.js<%= version %>"></script>
+```
 
 # Step by step
 1. Create a Folder "Demo-Angular6" inside your DNN /desktopmodule/Demo-Angular6/
