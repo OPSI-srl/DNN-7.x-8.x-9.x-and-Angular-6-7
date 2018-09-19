@@ -10,12 +10,12 @@ using DotNetNuke.Services.Exceptions;
 using DotNetNuke.UI.Utilities;
 using Newtonsoft.Json;
 
-namespace TemplateDNN9NG6
+namespace TemplateDNN7NG6
 {
     [DNNtc.ModuleDependencies(DNNtc.ModuleDependency.CoreVersion, "07.00.00")]
-    [DNNtc.PackageProperties("TemplateDNN9NG6", 1, "Angular module", "An Angular6 template", "BBAngular.png", "Torsten Weggen", "OPSI solutions", "http://www.opsi.it", "support@bopsi.it", false)]
-    [DNNtc.ModuleProperties("TemplateDNN9NG6", "Angular module", 0)]
-    [DNNtc.ModuleControlProperties("", "TemplateDNN9NG6", DNNtc.ControlType.View, "", false, false)]
+    [DNNtc.PackageProperties("TemplateDNN7NG6", 1, "Angular module", "An Angular6 template", "BBAngular.png", "Torsten Weggen", "OPSI solutions", "http://www.opsi.it", "support@bopsi.it", false)]
+    [DNNtc.ModuleProperties("TemplateDNN7NG6", "Angular module", 0)]
+    [DNNtc.ModuleControlProperties("", "TemplateDNN7NG6", DNNtc.ControlType.View, "", false, false)]
     public partial class View : PortalModuleBase
     {
         protected string Users

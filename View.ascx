@@ -1,9 +1,9 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="View.ascx.cs" Inherits="Angularmodule.View" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="View.ascx.cs" Inherits="TemplateDNN7NG6.View" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
 <base href="<%= Request.RawUrl%>">
 <%-- 
- 1 -> Rename 
+ 1 -> Rename Angular selector
  --%>
 <app-root-md>
     <p>Loading...</p>
@@ -12,9 +12,9 @@
 <script>
    var serviceFramework = $.ServicesFramework(parseInt('<%=ModuleId %>'));
 <%-- 
- 2 -> Rename with same name in dnncontext.service.ts
+ 2 -> Rename AngularNGMD inside window["AngularNGMD"], with same name in dnncontext.service.ts
  --%>
-    window["AngularTEMPLATE"] =
+    window["AngularNGMD"] =
         {
             "Resources":  {
                 "Example01": "lorem ipsum 01",
@@ -41,16 +41,18 @@
         }
 </script>
 
+<script src="<%= ControlPath %>dist/runtime.js<%= version %>"></script>
+<script src="<%= ControlPath %>dist/polyfills.js<%= version %>"></script>
+<script src="<%= ControlPath %>dist/styles.js<%= version %>"></script>
+<script src="<%= ControlPath %>dist/vendor.js<%= version %>"></script>
+<script src="<%= ControlPath %>dist/main.js<%= version %>"></script>
+
+<!-- OPTIONAL form material design -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<!-- OPTIONAL Testing -->
 <script>
     jQuery(document).ready(function() {
         console.log('starting antiforgeryvalue +: ' + window.$.ServicesFramework(<%=ModuleId%>).getAntiForgeryValue());
     });
 </script>
-
-
-<script src="/DesktopModules/NG6Template/dist/runtime.js<%= version %>"></script>
-<script src="/DesktopModules/NG6Template/dist/polyfills.js<%= version %>"></script>
-<script src="/DesktopModules/NG6Template/dist/styles.js<%= version %>"></script>
-<script src="/DesktopModules/NG6Template/dist/vendor.js<%= version %>"></script>
-<script src="/DesktopModules/NG6Template/dist/main.js<%= version %>"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

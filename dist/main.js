@@ -1324,14 +1324,10 @@ var Interceptor = /** @class */ (function () {
     }
     Interceptor.prototype.intercept = function (req, next) {
         var _this = this;
-        console.log('TCL: ----------------------------');
-        console.log('TCL: Interceptor -> req', req);
-        console.log('TCL: ----------------------------');
         return this.context.all$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(10)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["mergeMap"])(function (ctx) {
             console.log('TCL: ----------------------------');
             console.log('TCL: Interceptor -> ctx', ctx);
             console.log('TCL: ----------------------------');
-            // Clone the request and update the url with 2sxc params.
             var newReq = req.clone({
                 setHeaders: {
                     ModuleId: _this.context._moduleId.toString(),

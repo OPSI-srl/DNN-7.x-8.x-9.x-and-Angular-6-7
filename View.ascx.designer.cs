@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Angularmodule {
+namespace TemplateDNN7NG6 {
     
     
     public partial class View {
