@@ -31,9 +31,9 @@ Frontend developer should love it.
 <script>
    var serviceFramework = $.ServicesFramework(parseInt('<%=ModuleId %>'));
 <%-- 
- 2 -> Rename AngularNGMD inside window["AngularNGMD"], with same name in dnncontext.service.ts
+ 2 -> Rename AngularTEMPLATE inside window["AngularTEMPLATE"], with same name in dnncontext.service.ts
  --%>
-    window["AngularNGMD"] =
+    window["AngularTEMPLATE"] =
         {
             "Resources":  {
                 "Example01": "lorem ipsum 01",
@@ -139,15 +139,15 @@ Building your solution with visual studio on **Release mode** automaticaly visua
 - change selector "app-root-md" with the same on your Angular module (app.component.ts)
 
 ```html 
-    <app-root-md>
+    <app-root>
     <p>Loading...</p>
-    </app-root-md>
+    </app-root>
 ```
 
-- change "AngularNGMD"
+- change "AngularTEMPLATE"
 
 ```html
-    window["AngularNGMD"] =
+    window["AngularTEMPLATE"] =
         {
 ```
 
