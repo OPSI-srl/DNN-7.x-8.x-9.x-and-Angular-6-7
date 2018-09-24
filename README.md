@@ -6,7 +6,7 @@ This is a complete template DNN module .ascx for DNN 7.x and Angular 6. Useful f
 # Description
 To Develop Angular 6 project with DNN you need 2 different project:
 1. Angular CLI project
-2. DNN module that host your angular (this project)
+2. DNN module that host your angular **(this project)**
 
 This is a best practice for your developer frontend, because it is independent from DNN.
 
