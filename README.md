@@ -2,6 +2,7 @@
 This is a complete template DNN module .ascx for DNN 7.x and Angular 6. Useful for legacy DNN.
 
 **Note: if you are using DNN 9.x you can use specific template.**
+<link> : https://github.com/OPSI-srl/Angular-6.x-and-7.x---scaffold-SPA-HTML-Module-Visual-studio-Template-for-DNN-9.x
 
 # Description
 To Develop Angular 6 project with DNN you need 2 different project:
