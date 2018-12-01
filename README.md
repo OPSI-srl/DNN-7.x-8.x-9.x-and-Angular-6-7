@@ -1,11 +1,14 @@
 # Angular 6 - Visual studio Template for DNN 7.x, 8.x, 9.x.
 This is a complete template DNN module .ascx for DNN 7.x and Angular 6. Useful for legacy DNN.
 
-**[coming soon]** SPA module inside DNN 9.x.
+**Note: if you are using DNN 9.x you can use specific template.**
 
 # Description
 To Develop Angular 6 project with DNN you need 2 different project:
+
 1. Angular CLI project (template-dnn-7.x-for-angular-6-CLI)
+`<link>` : https://github.com/OPSI-srl/Angular-6---CLI-Template-for-DNN-7.x-8.x-9.x.
+
 2. DNN module that host your angular **(this project)**
 
 This is a best practice for your developer frontend, because it is independent from DNN.
